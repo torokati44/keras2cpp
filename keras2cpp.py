@@ -2,20 +2,19 @@ import struct
 from functools import singledispatch
 
 import numpy as np
-from keras.layers import (
-    Dense,
-    Conv1D, Conv2D,
-    LocallyConnected1D, LocallyConnected2D,
-    Flatten,
-    ELU,
-    Activation,
-    MaxPooling2D,
-    LSTM,
-    Embedding,
-    BatchNormalization,
-    )
+
+from keras.engine.input_layer import InputLayer
+from keras.layers.core import (Dense, Flatten, Activation)
+from keras.layers.convolutional import (Conv1D, Conv2D)
+from keras.layers.local import (LocallyConnected1D, LocallyConnected2D)
+from keras.layers.recurrent import LSTM
+from keras.layers.advanced_activations import ELU
+from keras.layers.pooling import MaxPooling2D
+from keras.layers.embeddings import Embedding
+from keras.layers.normalization import BatchNormalization
 
 LAYERS = (
+    InputLayer,
     Dense,
     Conv1D, Conv2D,
     LocallyConnected1D, LocallyConnected2D,
@@ -104,6 +103,10 @@ def _(layer, f):
     write_tensor(f, weights)
     write_tensor(f, biases)
 
+
+@export.register(InputLayer)
+def _(layer, f):
+    pass
 
 @export.register(Dense)
 def _(layer, f):

@@ -14,6 +14,8 @@
 namespace keras2cpp {
     std::unique_ptr<BaseLayer> Model::make_layer(Stream& file) {
         switch (static_cast<unsigned>(file)) {
+            case InputLayer:
+                return layers::InputLayer::make(file);
             case Dense:
                 return layers::Dense::make(file);
             case Conv1D:

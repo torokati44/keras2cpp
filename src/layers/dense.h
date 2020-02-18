@@ -10,5 +10,11 @@ namespace keras2cpp{
             Dense(Stream& file);
             Tensor operator()(const Tensor& in) const noexcept override;
         };
+
+        class InputLayer final : public Layer<InputLayer> {
+        public:
+            InputLayer(Stream& file);
+            Tensor operator()(const Tensor& in) const noexcept override;
+        };
     }
 }

@@ -21,5 +21,12 @@ namespace keras2cpp{
             }
             return activation_(tmp);
         }
+
+         InputLayer::InputLayer(Stream& file)
+         {}
+
+        Tensor InputLayer::operator()(const Tensor& in) const noexcept {
+            return in;
+        }
     }
 }
