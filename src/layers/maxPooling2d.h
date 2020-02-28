@@ -10,5 +10,22 @@ namespace keras2cpp{
             MaxPooling2D(Stream& file);
             Tensor operator()(const Tensor& in) const noexcept override;
         };
+
+        class AveragePooling1D final : public Layer<AveragePooling1D> {
+            unsigned pool_size_{0};
+
+        public:
+            AveragePooling1D(Stream& file);
+            Tensor operator()(const Tensor& in) const noexcept override;
+        };
+
+
+        class GlobalAveragePooling1D final : public Layer<GlobalAveragePooling1D> {
+            unsigned pool_size_{0};
+
+        public:
+            GlobalAveragePooling1D(Stream& file);
+            Tensor operator()(const Tensor& in) const noexcept override;
+        };
     }
 }

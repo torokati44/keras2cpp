@@ -13,12 +13,14 @@ namespace keras2cpp {
             ELU = 8,
             Activation = 9,
             MaxPooling2D = 10,
-            LSTM = 11,
-            Embedding = 12,
-            BatchNormalization = 13,
+            AveragePooling1D = 11,
+            GlobalAveragePooling1D = 12,
+            LSTM = 13,
+            Embedding = 14,
+            BatchNormalization = 15,
         };
         std::vector<std::unique_ptr<BaseLayer>> layers_;
-        
+
         static std::unique_ptr<BaseLayer> make_layer(Stream&);
 
     public:
