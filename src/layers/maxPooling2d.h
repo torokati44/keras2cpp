@@ -11,6 +11,7 @@ namespace keras2cpp{
             Tensor operator()(const Tensor& in) const noexcept override;
         };
 
+
         class AveragePooling1D final : public Layer<AveragePooling1D> {
             unsigned pool_size_{0};
 
@@ -21,8 +22,6 @@ namespace keras2cpp{
 
 
         class GlobalAveragePooling1D final : public Layer<GlobalAveragePooling1D> {
-            unsigned pool_size_{0};
-
         public:
             GlobalAveragePooling1D(Stream& file);
             Tensor operator()(const Tensor& in) const noexcept override;
